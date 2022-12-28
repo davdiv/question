@@ -64,6 +64,9 @@ export const validate = (question: Question): QuestionValidation => {
 			coefficientValid
 		};
 	});
+	if (question.options.length == 0) {
+		fullyValid = false;
+	}
 	return {
 		fullyValid,
 		questionValid,
