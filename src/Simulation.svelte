@@ -19,7 +19,7 @@
 	<div class="card-body">
 		<div class="form-row">
 			<label for="simulationsInput" class="col-auto col-form-label"
-				>Nombre de simulations</label
+				>Nombre</label
 			>
 			<div class="col">
 				<input
