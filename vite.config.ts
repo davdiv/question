@@ -7,7 +7,6 @@ export default defineConfig({
 	plugins: [
 		svelte(),
 		VitePWA({
-			registerType: "autoUpdate",
 			injectRegister: null,
 			manifest: {
 				name: "Question",
