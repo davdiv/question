@@ -19,8 +19,6 @@
 
 <div class="container-fluid mt-3">
 	<p class="text-muted ">
-		Ce programme est un logiciel libre, sous license MIT. Son code source est <a
-			href="https://github.com/davdiv/question">disponible ici</a
-		>.
+		Ce programme est un logiciel libre, sous license MIT. Son code source est <a href="https://github.com/davdiv/question">disponible ici</a>.
 	</p>
 </div>

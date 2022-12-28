@@ -12,8 +12,7 @@ export default defineConfig({
 			manifest: {
 				name: "Question",
 				short_name: "Question",
-				description:
-					"Application permettant d'écrire une question avec un ensemble de réponses possibles (éventuellement munies de coefficients de probabilité), et d'obtenir une réponse aléatoire. ",
+				description: "Application permettant d'écrire une question avec un ensemble de réponses possibles (éventuellement munies de coefficients de probabilité), et d'obtenir une réponse aléatoire. ",
 				icons: [
 					{
 						src: "/android-chrome-192x192.png",
