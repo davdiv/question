@@ -11,7 +11,9 @@ export default defineConfig({
 			injectRegister: null,
 			manifest: {
 				name: "Question",
-				description: "",
+				short_name: "Question",
+				description:
+					"Application permettant d'écrire une question avec un ensemble de réponses possibles (éventuellement munies de coefficients de probabilité), et d'obtenir une réponse aléatoire. ",
 				icons: [
 					{
 						src: "/android-chrome-192x192.png",
