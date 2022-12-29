@@ -26,3 +26,14 @@ jobs:
       - run: yarn lint
       - run: yarn check
       - run: yarn format:check
+      - name: Build android
+        run: |
+          export KEYSTORE_PASS=$(node -e 'console.log(require("crypto").randomBytes(64).toString("hex"))')
+          export KEYSTORE_ALIAS_PASS=$(node -e 'console.log(require("crypto").randomBytes(64).toString("hex"))')
+          ( cd android/keys && ./generate.sh )
+          yarn build:android
+          cp android/app/build/outputs/apk/release/app-release-signed.apk android/app/build/outputs/apk/release/question.apk
+      - uses: actions/upload-artifact@v3
+        with:
+          name: apk
+          path: android/app/build/outputs/apk/release/question.apk
