@@ -113,31 +113,3 @@ export const simulateResponses = (question: Question, simulations: number): Simu
 	}
 	return table;
 };
-
-const f2 = (value: number) => {
-	return `${value < 10 ? "0" : ""}${value}`;
-};
-
-export const formatTimestamp = (timestamp: number) => {
-	const date = new Date(timestamp);
-	return `${f2(date.getDate())}/${f2(1 + date.getMonth())}/${date.getFullYear()} ${f2(date.getHours())}h${f2(date.getMinutes())}`;
-};
-
-export const formatFilename = (timestamp: number) => {
-	const date = new Date(timestamp);
-	return `question-${date.getFullYear()}-${f2(1 + date.getMonth())}-${f2(date.getDate())}-${f2(date.getHours())}h${f2(date.getMinutes())}m${f2(date.getSeconds())}s${date.getMilliseconds()}.txt`;
-};
-
-export const buildTextResponse = (response: Response) => {
-	const textResponse = [];
-	textResponse.push(`${formatTimestamp(response.timestamp)}:\n\n${response.question.question}\n`);
-	response.question.options.forEach((option, index) => {
-		textResponse.push(` ${index === response.responseIndex ? " ->" : " - "} ${option.label}`);
-		if (option.coefficient !== 1) {
-			textResponse.push(` (coefficient ${option.coefficient})`);
-		}
-		textResponse.push("\n");
-	});
-	textResponse.push("\n\n");
-	return textResponse.join("");
-};

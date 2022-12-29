@@ -1,20 +1,29 @@
 <script lang="ts">
+	import { Capacitor } from "@capacitor/core";
+	import { clearAlerts, type Alerts } from "./alerts/alertsModel";
 	import type { Response } from "./model";
 	import { defaultQuestion, validate } from "./model";
+	import AlertsPanel from "./alerts/Alerts.svelte";
 	import QuestionPanel from "./Question.svelte";
 	import SimulationPanel from "./Simulation.svelte";
+	import SaveSettingsPanel from "./SaveSettings.svelte";
 	import ResponsePanel from "./Response.svelte";
+	let alerts: Alerts = clearAlerts();
 	let question = defaultQuestion();
 	$: questionValidation = validate(question);
 	let response: Response | null = null;
 </script>
 
-<div class="container-fluid">
+<div class="container-fluid mt-3">
+	<AlertsPanel bind:alerts />
 	{#if !response}
 		<QuestionPanel bind:question {questionValidation} />
 		<SimulationPanel {question} {questionValidation} />
+		{#if Capacitor.isNativePlatform()}
+			<SaveSettingsPanel />
+		{/if}
 	{/if}
-	<ResponsePanel bind:question bind:response {questionValidation} />
+	<ResponsePanel bind:alerts bind:question bind:response {questionValidation} />
 </div>
 
 <div class="container-fluid mt-3">
