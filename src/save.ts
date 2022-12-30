@@ -5,6 +5,7 @@ import { get } from "svelte/store";
 import { addAlert, type Alerts } from "./alerts/alertsModel";
 import { indexedDbStore } from "./indexedDb";
 
+export const settingSimulationsNumber = indexedDbStore("simulationsNumber", 1000);
 export const settingSave = indexedDbStore("save", false);
 const defaultSaveFolder = Capacitor.getPlatform() === "android" ? "file:///storage/emulated/0/Documents/Question" : undefined;
 export const settingSaveFolder = indexedDbStore<string | FileSystemDirectoryHandle | undefined>("saveFolder", defaultSaveFolder);

@@ -3,10 +3,10 @@
 	import FaIcon from "./FaIcon.svelte";
 	import type { Question, QuestionValidation, SimulationResponse } from "./model";
 	import { simulateResponses } from "./model";
+	import { settingSimulationsNumber } from "./save";
 
 	export let question: Question;
 	export let questionValidation: QuestionValidation;
-	let simulationsNumber = 1000;
 	let simulation: SimulationResponse | null = null;
 </script>
 
@@ -16,10 +16,12 @@
 		<div class="form-row">
 			<label for="simulationsInput" class="col-auto col-form-label">Nombre</label>
 			<div class="col">
-				<input type="number" class="form-control" id="simulationsInput" bind:value={simulationsNumber} />
+				<input type="number" class="form-control" id="simulationsInput" bind:value={$settingSimulationsNumber} />
 			</div>
 			<div class="col-auto">
-				<button type="button" class="btn btn-primary" disabled={!questionValidation.fullyValid} on:click={() => (simulation = simulateResponses(question, simulationsNumber))}>Simulation</button>
+				<button type="button" class="btn btn-primary" disabled={!questionValidation.fullyValid} on:click={() => (simulation = simulateResponses(question, $settingSimulationsNumber))}
+					>Simulation</button
+				>
 			</div>
 		</div>
 		<br />
