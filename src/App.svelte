@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { Capacitor } from "@capacitor/core";
 	import { clearAlerts, type Alerts } from "./alerts/alertsModel";
 	import type { Response } from "./model";
 	import { defaultQuestion, validate } from "./model";
@@ -19,9 +18,7 @@
 	{#if !response}
 		<QuestionPanel bind:question {questionValidation} />
 		<SimulationPanel {question} {questionValidation} />
-		{#if Capacitor.isNativePlatform()}
-			<SaveSettingsPanel />
-		{/if}
+		<SaveSettingsPanel />
 	{/if}
 	<ResponsePanel bind:alerts bind:question bind:response {questionValidation} />
 </div>
