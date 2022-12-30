@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Question</string>
+    <string name="title_activity_main">Question</string>
+    <string name="package_name">fr.shamayim.question</string>
+    <string name="custom_url_scheme">fr.shamayim.question</string>
+</resources>
