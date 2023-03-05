@@ -33,6 +33,7 @@ export const defaultQuestion = (): Question => ({
 	options: [
 		{ label: "Oui", coefficient: 1 },
 		{ label: "Non", coefficient: 1 },
+		{ label: "Autre", coefficient: 1 },
 		{ label: "Pas de réponse", coefficient: 1 }
 	]
 });
