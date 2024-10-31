@@ -63,7 +63,7 @@ export const saveResponse = async (response: Response, alerts: Alerts): Promise<
 			try {
 				await Filesystem.stat({ path });
 				exist = true;
-			} catch (error) {
+			} catch {
 				// ignore error if file does not exist
 			}
 			if (exist) {

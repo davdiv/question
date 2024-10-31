@@ -13,7 +13,7 @@
 	<div class="card-body">
 		<div class="form-group">
 			<label for="question">Question</label>
-			<textarea class="form-control" id="question" rows="3" class:is-invalid={!questionValidation.questionValid} bind:value={question.question} />
+			<textarea class="form-control" id="question" rows="3" class:is-invalid={!questionValidation.questionValid} bind:value={question.question}></textarea>
 		</div>
 		<div>
 			<div class="clearfix mb-2">
