@@ -1,9 +1,10 @@
 import { Capacitor } from "@capacitor/core";
 import "bootstrap/dist/css/bootstrap.min.css";
 import App from "./App.svelte";
+import { mount } from "svelte";
 
-const app = new App({
-	target: document.getElementById("app") as Element
+mount(App, {
+	target: document.getElementById("app")!
 });
 
 if (!Capacitor.isNativePlatform() && "serviceWorker" in navigator && import.meta.env.MODE === "production") {
@@ -11,5 +12,3 @@ if (!Capacitor.isNativePlatform() && "serviceWorker" in navigator && import.meta
 		navigator.serviceWorker.register("/sw.js", { scope: "/" });
 	});
 }
-
-export default app;

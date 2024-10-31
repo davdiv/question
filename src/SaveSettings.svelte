@@ -6,7 +6,7 @@
 		try {
 			const folder = await showDirectoryPicker({ id: "saveResult", mode: "readwrite", startsIn: $settingSaveFolder ?? "documents" });
 			$settingSaveFolder = folder;
-		} catch (error) {
+		} catch {
 			// ignore error, the user probably canceled
 		}
 	}
