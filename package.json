@@ -6,7 +6,7 @@
 	"scripts": {
 		"dev": "vite",
 		"build": "vite build",
-		"build:android": "cap sync && cap build android --androidreleasetype APK",
+		"build:android": "cap sync && ./android/gradlew -p android assembleRelease",
 		"preview": "vite preview",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"format:fix": "prettier --write .",
@@ -14,10 +14,10 @@
 		"lint": "eslint ."
 	},
 	"devDependencies": {
-		"@capacitor/android": "^4.6.1",
-		"@capacitor/cli": "^4.6.1",
-		"@capacitor/core": "^4.6.1",
-		"@capacitor/filesystem": "^4.1.4",
+		"@capacitor/android": "^6.1.2",
+		"@capacitor/cli": "^6.1.2",
+		"@capacitor/core": "^6.1.2",
+		"@capacitor/filesystem": "^6.0.1",
 		"@eslint/js": "^9.13.0",
 		"@fortawesome/free-solid-svg-icons": "^6.6.0",
 		"@sveltejs/vite-plugin-svelte": "^4.0.0",
