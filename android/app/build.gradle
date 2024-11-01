@@ -1,7 +1,8 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
+    namespace "fr.shamayim.question"
+    compileSdk rootProject.ext.compileSdkVersion
     defaultConfig {
         applicationId "fr.shamayim.question"
         minSdkVersion rootProject.ext.minSdkVersion
@@ -15,10 +16,19 @@ android {
             ignoreAssetsPattern '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
         }
     }
+    signingConfigs {
+        release {
+            keyAlias 'keys'
+            keyPassword = System.getenv('KEYSTORE_ALIAS_PASS')
+            storeFile = file('../keys/keys.keystore')
+            storePassword = System.getenv('KEYSTORE_PASS')
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig = signingConfigs.release
         }
     }
 }
